@@ -1,34 +1,34 @@
-import { useState } from 'react';
-import reactLogo from '../assets/react.svg';
-import viteLogo from '/vite.svg';
+import { useParams } from 'react';
 import '../styles/App.css';
+import { Link } from 'react-router-dom';
+import ErrorPage from './ErrorPage';
+import Shop from './Shop';
+import AboutUs from './AboutUs';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
+    <div>
+      <nav>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='shop'>Shop</Link>
+        </li>
+        <li>
+          <Link to='about'>About Us</Link>
+        </li>
+      </nav>
       <div>
-        <a href='https://vite.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
+        {/* {name === 'popeye' ? (
+          <Shop />
+        ) : name === 'spinach' ? (
+          <AboutUs />
+        ) : (
+          <ErrorPage />
+        )} */}
       </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   );
 }
 
