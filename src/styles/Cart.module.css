@@ -1,0 +1,4 @@
+.cart {
+  height: 200px;
+  width: clamp(100px, 10%, 200px);
+}

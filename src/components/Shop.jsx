@@ -1,10 +1,21 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import ShopWindow from './shopWindow';
+import ErrorPage from './ErrorPage';
+import Shop2 from './shop2';
+import Head from './Head';
 
 function Shop() {
+  const { name } = useParams();
   return (
     <div>
-      <h1>The Shop</h1>
-      <Link to='/'>back to home</Link>
+      <Head></Head>
+      {name === 'shopWindow' ? (
+        <ShopWindow />
+      ) : name === 'shop2' ? (
+        <Shop2 />
+      ) : (
+        <ErrorPage />
+      )}
     </div>
   );
 }
