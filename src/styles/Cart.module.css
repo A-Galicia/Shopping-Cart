@@ -1,4 +1,9 @@
 .cart {
-  height: 200px;
+  color: black;
+  background-color: aliceblue;
+  border: 2px solid seagreen;
+  border-radius: 20px;
   width: clamp(100px, 10%, 200px);
+  position: fixed;
+  padding: 10px;
 }
