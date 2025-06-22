@@ -35,6 +35,11 @@ function PurchaseCart({ cart }) {
 
     return sum.toFixed(2);
   }
+
+  function refreshPage() {
+    window.location.reload();
+  }
+
   return (
     <div>
       <div className={classes.cart}>
@@ -52,7 +57,7 @@ function PurchaseCart({ cart }) {
             </div>
           );
         })}
-        <button onClick={window.location.reload}>Clear Cart</button>
+        <button onClick={refreshPage}>Clear Cart</button>
       </div>
       <div>Total: ${showTotal(showCart, hashCart)}</div>
     </div>
