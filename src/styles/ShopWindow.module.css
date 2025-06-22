@@ -19,6 +19,7 @@
 
 .imgClass {
   height: 200px;
+  max-width: 275px;
 }
 
 .price {

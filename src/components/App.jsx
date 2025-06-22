@@ -13,6 +13,9 @@ function App() {
         src='powerlifting_logo.jpg'
         alt='knight with sword'
       />
+      <p>
+        <strong>All your needs are here</strong>
+      </p>
     </div>
   );
 }

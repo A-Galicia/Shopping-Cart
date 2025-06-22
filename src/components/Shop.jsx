@@ -5,6 +5,7 @@ import ErrorPage from './ErrorPage';
 import PurchaseCart from './PurchaseCart';
 import Head from './Head';
 import CartBar from './CartBar';
+import '../styles/App.css';
 
 function Shop() {
   const [addToCart, setAddToCart] = useState(0);

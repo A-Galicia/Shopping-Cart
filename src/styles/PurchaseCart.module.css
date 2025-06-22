@@ -5,8 +5,22 @@
   flex-direction: column;
   width: clamp(200px, 50%, 500px);
   padding: 10px;
+  place-self: center;
+  margin: 10px;
 }
 
 .imgClass {
   height: 75px;
+}
+
+.button {
+  width: fit-content;
+  place-self: center;
+  margin: 10px;
+  font-size: 1.5rem;
+  border-radius: 20px;
+}
+
+.total {
+  font-size: 1.5rem;
 }

@@ -57,9 +57,13 @@ function PurchaseCart({ cart }) {
             </div>
           );
         })}
-        <button onClick={refreshPage}>Clear Cart</button>
+        <button className={classes.button} onClick={refreshPage}>
+          Clear Cart
+        </button>
       </div>
-      <div>Total: ${showTotal(showCart, hashCart)}</div>
+      <div className={classes.total}>
+        Total: ${showTotal(showCart, hashCart)}
+      </div>
     </div>
   );
 }
