@@ -3,7 +3,7 @@ import ErrorPage from './components/ErrorPage';
 import Shop from './components/Shop';
 import AboutUs from './components/AboutUs';
 import ShopWindow from './components/shopWindow';
-import Shop2 from './components/shop2';
+import PurchaseCart from './components/PurchaseCart';
 
 const routes = [
   {
@@ -17,7 +17,7 @@ const routes = [
     errorElement: <ErrorPage />,
     children: [
       { path: 'shopWindow', element: <ShopWindow /> },
-      { path: 'shop2', element: <Shop2 /> },
+      { path: 'purchaseCart', element: <PurchaseCart /> },
     ],
   },
   {

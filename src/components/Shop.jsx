@@ -1,20 +1,67 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import ShopWindow from './shopWindow';
 import ErrorPage from './ErrorPage';
-import Shop2 from './shop2';
+import PurchaseCart from './PurchaseCart';
 import Head from './Head';
-import Cart from './Cart';
+import CartBar from './CartBar';
 
 function Shop() {
+  const [addToCart, setAddToCart] = useState(0);
+  const [cart, setCart] = useState([]);
+
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchDataForPosts() {
+      try {
+        const response = await fetch('https://fakestoreapi.com/products');
+        if (!response.ok) {
+          throw new Error(`HTTP error: Status ${response.status}`);
+        }
+        const postsData = await response.json();
+        setData(postsData);
+        setError(null);
+      } catch (err) {
+        setError(err.message);
+        setData(null);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchDataForPosts();
+  }, []);
+
+  function incrementCart() {
+    setAddToCart(() => addToCart + 1);
+  }
+
+  function sendToCart(id) {
+    const clickedItem = data.filter((item) => item.id === id);
+    setCart((prevCart) => [...prevCart, clickedItem[0]]);
+  }
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
+
   const { name } = useParams();
   return (
     <div>
       <Head></Head>
-      <Cart></Cart>
+      <CartBar addToCart={addToCart}></CartBar>
       {name === 'shopWindow' ? (
-        <ShopWindow />
-      ) : name === 'shop2' ? (
-        <Shop2 />
+        <ShopWindow
+          data={data}
+          loading={loading}
+          error={error}
+          incrementCart={incrementCart}
+          sendToCart={sendToCart}
+        />
+      ) : name === 'purchaseCart' ? (
+        <PurchaseCart cart={cart} />
       ) : (
         <ErrorPage />
       )}

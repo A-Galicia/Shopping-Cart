@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import classes from '../styles/ShopWindow.module.css';
 
-function ShopWindow() {
-  const [data, setData] = useState(null);
+function ShopWindow({ data, loading, error, incrementCart, sendToCart }) {
+  /* const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -24,7 +24,12 @@ function ShopWindow() {
       }
     }
     fetchDataForPosts();
-  }, []);
+  }, []); */
+
+  function handleClick(id) {
+    incrementCart();
+    sendToCart(id);
+  }
 
   return (
     <div className={classes.shopWindow}>
@@ -35,7 +40,13 @@ function ShopWindow() {
       {data &&
         data.map((item) => {
           return (
-            <div key={item.id} className={classes.itemClass}>
+            <div
+              key={item.id}
+              className={classes.itemClass}
+              onClick={() => {
+                handleClick(item.id);
+              }}
+            >
               <p>{item.title}</p>
               <p className={classes.price}>${item.price}</p>
               <img className={classes.imgClass} src={item.image} />
