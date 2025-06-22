@@ -1,31 +1,6 @@
-import { useState, useEffect } from 'react';
 import classes from '../styles/ShopWindow.module.css';
 
 function ShopWindow({ data, loading, error, incrementCart, sendToCart }) {
-  /* const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    async function fetchDataForPosts() {
-      try {
-        const response = await fetch('https://fakestoreapi.com/products');
-        if (!response.ok) {
-          throw new Error(`HTTP error: Status ${response.status}`);
-        }
-        const postsData = await response.json();
-        setData(postsData);
-        setError(null);
-      } catch (err) {
-        setError(err.message);
-        setData(null);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchDataForPosts();
-  }, []); */
-
   function handleClick(id) {
     incrementCart();
     sendToCart(id);

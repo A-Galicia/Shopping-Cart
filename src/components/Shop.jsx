@@ -43,15 +43,15 @@ function Shop() {
     setCart((prevCart) => [...prevCart, clickedItem[0]]);
   }
 
-  useEffect(() => {
+  /*  useEffect(() => {
     console.log(cart);
-  }, [cart]);
+  }, [cart]); */
 
   const { name } = useParams();
   return (
     <div>
       <Head></Head>
-      <CartBar addToCart={addToCart}></CartBar>
+      {name === 'shopWindow' ? <CartBar addToCart={addToCart}></CartBar> : null}
       {name === 'shopWindow' ? (
         <ShopWindow
           data={data}

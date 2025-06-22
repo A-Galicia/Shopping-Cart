@@ -5,10 +5,7 @@ function Cart({ addToCart }) {
   return (
     <div>
       <Link to='/shop/purchaseCart'>
-        <div className={classes.cart}>
-          hello from the corner
-          <p>{addToCart}</p>
-        </div>
+        <div className={classes.cart}>Cart: {addToCart}</div>
       </Link>
     </div>
   );
